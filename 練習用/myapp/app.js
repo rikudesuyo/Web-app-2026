@@ -15,9 +15,7 @@ const pool = new Pool({
 });
 
 app.get('/api/messages', async (req, res) => {
-  const result = await pool.query(
-    'SELECT * FROM messages ORDER BY created_at ASC'
-  );
+  const result = await pool.query('SELECT * FROM messages ORDER BY created_at ASC');
   res.json(result.rows);
 });
 
@@ -30,8 +28,6 @@ app.post('/api/messages', async (req, res) => {
   res.json(result.rows[0]);
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(
-    `サーバが起動しました： http://localhost:${process.env.PORT || 3000}`,
-  );
+app.listen(3002, () => {
+  console.log('★サーバーが3002番ポートで待機を開始しました★');
 });
